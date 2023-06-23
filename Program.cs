@@ -89,7 +89,51 @@ FindSum(randomArray);
 [3.22, 4.2, 1.15, 77.15, 65.2] => 77.15 - 1.15 = 76
 
 
-/*
+*/
 
+double [] RandomArray ()
+{
+    int size = new Random().Next(4, 7);
+    double [] randomArray = new double [size];
+    for (int i = 0; i < size; i++)
+    {
+        randomArray[i] = (new Random().NextDouble()*10);
+        randomArray[i] = Math.Round(randomArray[i], 2);
+    }
+    return randomArray;
+
+}
+
+void PrintArray(double [] arrayPrint)
+{
+    for (int i = 0; i < arrayPrint.Length; i++)
+    {
+        Console.Write(arrayPrint[i] + " ");
+    }
+    Console.WriteLine();
+}
+
+double MaxMin(double [] randomArray)
+{
+    double min = randomArray[0];
+    double max = randomArray[0];
+    int i = 1;
+    while (i < randomArray.Length)
+        {
+            if (max<randomArray[i])
+            max = randomArray[i];
+            if (min>randomArray[i])
+            min = randomArray[i];
+            i = i + 1;
+        }
+    double diff = max - min;
+    Console.WriteLine($"{max} - {min} = {diff}");
+    return diff;
+}
+
+
+double [] randomArray = RandomArray();
+PrintArray(randomArray);
+MaxMin(randomArray);
 
 
